@@ -17,14 +17,8 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("email");
+        String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        if (username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
-            req.getSession().setAttribute("connected", true);
-            resp.sendRedirect(req.getContextPath() + "/private/hello");
-        } else {
-            doGet(req, resp);
-        }
     }
 }
